@@ -48,14 +48,13 @@ dependencies {
 
 afterEvaluate {
     publishing {
-
         def groupId = "saiful"
         def artifactId = "test"
         def versionName = "1.0.1" + "-local"
         def releaseSuffix = "-release"
 
         publications {
-            LibraryRelease(MavenPublication) {
+            release(MavenPublication) {
                 from components.release
                 setGroupId groupId
                 setArtifactId artifactId
