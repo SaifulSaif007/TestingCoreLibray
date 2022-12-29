@@ -46,19 +46,17 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 }
 
+
 afterEvaluate {
     publishing {
-        def groupId = "saiful"
-        def artifactId = "test"
-        def versionName = "1.0.1" + "-local"
-        def releaseSuffix = "-release"
-
         publications {
             release(MavenPublication) {
+
                 from components.release
-                setGroupId groupId
-                setArtifactId artifactId
-                version versionName + releaseSuffix
+
+                groupId = 'com.github.SaifulSaif007'
+                artifactId = 'test-lib'
+                version = '1.0.2'
             }
         }
     }
