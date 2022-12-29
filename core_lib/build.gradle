@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
@@ -40,9 +41,26 @@ dependencies {
     implementation(files("libs/customlist-debug.aar"))
     implementation 'io.github.shashank02051997:FancyToast:2.0.2'
 
-    
-
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+}
+
+afterEvaluate {
+    publishing {
+
+        def groupId = "saiful"
+        def artifactId = "test"
+        def versionName = "1.0.1" + "-local"
+        def releaseSuffix = "-release"
+
+        publications {
+            LibraryRelease(MavenPublication) {
+                from components.release
+                setGroupId groupId
+                setArtifactId artifactId
+                version versionName + releaseSuffix
+            }
+        }
+    }
 }
