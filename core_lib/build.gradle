@@ -37,8 +37,10 @@ dependencies {
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-
+    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
+    //implementation(name: 'customlist-debug', ext: 'aar')
     implementation(files("libs/customlist-debug.aar"))
+
     implementation 'io.github.shashank02051997:FancyToast:2.0.2'
 
     testImplementation 'junit:junit:4.13.2'
